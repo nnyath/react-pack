@@ -1,0 +1,7 @@
+dev/
+dist/
+
+.vscode/
+node_modules/
+
+
