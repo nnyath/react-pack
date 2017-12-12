@@ -1,0 +1,13 @@
+{
+  "extends": ["standard", "standard-react"],
+  "rules": {
+    "one-var": 0,
+    "curly": ["error", "multi"]
+  },
+  "parser": "babel-eslint",
+  "plugins": ["jest"],
+  // TODO: Find a config for Standard Jest
+  "env": {
+    "jest" : true
+  }
+}
