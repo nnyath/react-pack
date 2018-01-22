@@ -6,7 +6,7 @@
     "babel-plugin-transform-async-to-generator" 
   ],
   "env": {
-    "development": {
+    "dev": {
       "presets": ["react-hmre"]
     }
   }

@@ -4,17 +4,11 @@ const
   webpack = require('webpack'),
   configMerge = require('webpack-merge'),
   path = require('path'),
-  glob = require('glob'),
   ExtractTextPlugin = require('extract-text-webpack-plugin'),
   UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
-  PurifyCSSPlugin = require('purifycss-webpack')
+  env = require('./env').prod
 
 module.exports = configMerge.smart(require('./webpack.base.js'), {
-  entry: {
-    app: [
-      './jekyll-src/index.js'
-    ].concat(glob.sync('./jekyll-src/assets/**/*.+(gif|png|jpe?g|svg)'))
-  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
@@ -23,7 +17,7 @@ module.exports = configMerge.smart(require('./webpack.base.js'), {
     rules: [
       {
         test: /\.(gif|png|jpe?g|svg)$/i,
-        exclude: /(node_modules|bower_components|.sass-cache)/,
+        exclude: /(node_modules)/,
         use: [
           {
             loader: 'file-loader',
@@ -58,27 +52,19 @@ module.exports = configMerge.smart(require('./webpack.base.js'), {
   plugins: [
     new ExtractTextPlugin({
       filename: '[name].css',
-      disable: false
+      allChunks: true
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: JSON.stringify('dist')
-      }
-    }),
-    new webpack.DefinePlugin({
-      JEKYLL_PACK_VER: JSON.stringify(require('./package.json').version + '-dist')
+        NODE_ENV: JSON.stringify('production')
+      },
+      'process.consts': JSON.stringify(env)
     }),
     new webpack.NoEmitOnErrorsPlugin(),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new UglifyJSPlugin({
       sourceMap: true,
       parallel: true
-    }),
-    new PurifyCSSPlugin({
-      paths: glob.sync('./dist/**/*.html'),
-      purifyOptions: {
-        whitelist: ['is-clipped', 'is-hidden', 'is-warning', 'is-success']
-      },
-      minimize: true
     })
   ]
 })

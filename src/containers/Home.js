@@ -28,6 +28,8 @@ export default class Home extends React.Component {
       <h1>Hello World!</h1>
       <h2>Home is where the heart <span className={home ? 'red' : ''}>{home ? 'is!' : `isn't`}</span></h2>
       <button onClick={this.toggleHome}>Toggle where the heart is</button>
+      <br />
+      <a>This is a global const based on the system environment<br />{process.consts.URLS.EXAMPLE}</a>
     </div>
   }
 }

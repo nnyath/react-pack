@@ -1,10 +1,34 @@
 /* eslint global-require: 0 */
 
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const
+  path = require('path'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin'),
+  CONTEXT = path.join(__dirname, 'src')
 
 module.exports = {
+  context: CONTEXT,
+  entry: {
+    app: [
+      './index.js',
+      './index.html'
+    ]
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js'
+  },
   module: {
     rules: [
+      {
+        test: /\.html$/,
+        exclude: /(node_modules)/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]'
+          }
+        }
+      },
       {
         test: /\.js?$/,
         exclude: /node_modules/,
