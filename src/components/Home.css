@@ -5,3 +5,8 @@
 .red {
   color: var(--red);
 }
+
+.blue {
+  margin: 0 auto;
+  color: blue;
+}
