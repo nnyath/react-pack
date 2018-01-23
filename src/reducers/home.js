@@ -1,4 +1,4 @@
-import {TOGGLE_HOME} from '../actions/home'
+import {TOGGLE_HOME} from 'Actions/home'
 
 export default function reducer (state = {
   home: false

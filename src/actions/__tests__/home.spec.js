@@ -1,4 +1,4 @@
-import { toggleHome, TOGGLE_HOME } from '../home'
+import { toggleHome, TOGGLE_HOME } from 'Actions/home'
 
 describe('home', () => {
   describe('toggleHome', () => {

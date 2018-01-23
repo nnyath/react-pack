@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import { toggleHome } from '../actions/home'
+import { toggleHome } from 'Actions/home'
 import './Home.css'
 
 @connect(store => {

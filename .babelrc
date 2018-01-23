@@ -1,9 +1,24 @@
 {
-  "presets": [ "env", "react" ],
+  "presets": [
+    "env",
+    "react" ],
   "plugins": [
     "transform-object-rest-spread", 
     "transform-decorators-legacy", 
-    "babel-plugin-transform-async-to-generator" 
+    "babel-plugin-transform-async-to-generator",
+    ["transform-runtime", {
+      "useBuiltIns": true,
+      "useESModules": true
+    }],
+    ["module-resolver", {
+      "root": ["./src"],
+      "alias": {
+        "Actions": "./src/actions",
+        "Components": "./src/components",
+        "Reducers": "./src/reducers",
+        "Redux": "./src/redux"
+      }
+    }]
   ],
   "env": {
     "dev": {

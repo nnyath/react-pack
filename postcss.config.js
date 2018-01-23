@@ -9,6 +9,7 @@ module.exports = {
           variables: {'preferred-font': 'inherit'}
         }
       }
-    })
+    }),
+    process.env.NODE_ENV === 'production' ? require('cssnano')({preset: 'default'}) : null
   ]
 }
