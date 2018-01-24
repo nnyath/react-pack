@@ -19,5 +19,10 @@
         "Redux": "./src/redux"
       }
     }]
-  ]
+  ],
+  "env": {
+    "test": {
+      "presets": ["env", "react"]
+    }
+  }
 }
