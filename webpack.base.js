@@ -9,11 +9,13 @@ module.exports = {
   context: CONTEXT,
   entry: {
     app: [
+      'react-hot-loader/patch',
       './index.js',
       './index.html'
     ]
   },
   output: {
+    publicPath: '/',
     path: path.join(__dirname, 'dist'),
     filename: '[name].js'
   },

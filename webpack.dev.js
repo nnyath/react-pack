@@ -21,6 +21,7 @@ module.exports = configMerge.smart(require('./webpack.base.js'), {
       },
       'process.consts': JSON.stringify(env)
     }),
+    new webpack.NamedModulesPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin({
