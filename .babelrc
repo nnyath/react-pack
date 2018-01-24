@@ -1,6 +1,8 @@
 {
   "presets": [
     ["env", {
+      "targets":["last 2 versions"],
+      "useBuiltIns": true,
       "modules": false
     }],
     "react" ],

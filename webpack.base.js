@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     app: [
       'react-hot-loader/patch',
+      'babel-polyfill',
       './index.js',
       './index.html'
     ]
