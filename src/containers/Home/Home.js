@@ -1,11 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-
 import { toggleHome } from 'Actions/home'
-
-import Title from 'Components/ui/Title/Title'
+import { Redirect } from 'react-router-dom'
 import './Home.css'
+import Title from 'Components/ui/Title/Title'
 
 @connect(store => {
   return store.home
@@ -13,6 +12,7 @@ import './Home.css'
 export default class Home extends React.Component {
   constructor (props) {
     super(props)
+    this.state = { redirect: false }
     this.toggleHome = this.toggleHome.bind(this)
   }
 
@@ -38,6 +38,8 @@ export default class Home extends React.Component {
           This is a global const based on the system environment<br />
           {process.consts.URLS.EXAMPLE}
         </a>
+        <button onClick={() => { this.setState({ redirect: true }) }}>Go to split</button>
+        { this.state.redirect ? <Redirect to='/split' /> : null}
       </div>
     )
   }

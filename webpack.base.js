@@ -18,7 +18,8 @@ module.exports = {
   output: {
     publicPath: '/',
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    chunkFilename: '[name].js'
   },
   module: {
     rules: [
