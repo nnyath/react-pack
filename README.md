@@ -24,6 +24,7 @@ PostCSS | Use the latest CSS syntax safely | 3
 ESLint + Prettier | Enforcing JS best practices + Auto-formatting | 4
 Stylelint + Stylefmt | Enforcing CSS best practices + Auto-formatting | 8
 Webpack | Build and bundle | 3
+Code Splitting + Dynamic Imports | Lazy load parts of you app to reduce initial load size | 1
 React Hot Loader | Instantly update your React app without refreshing |  3
 Optimizations | Minifying, tree-shaking, image compression | ...
 Pre-Commit Hooks | Force linting clean code before committing | 1
